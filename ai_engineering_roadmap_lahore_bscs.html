@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Engineering Roadmap — Personalized 9-Phase Plan</title>
+  <meta name="description" content="A personalized 9-phase roadmap from Python basics to AI Engineer for BSCS students.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  
+  <style>
+    :root {
+      --font-sans: 'Plus Jakarta Sans', 'Outfit', -apple-system, sans-serif;
+      
+      /* Dark Theme variables by default */
+      --bg-app: #080b11;
+      --bg-surface: #0e131f;
+      --bg-surface-elevated: #161d30;
+      
+      --color-text-primary: #f8fafc;
+      --color-text-secondary: #94a3b8;
+      --color-text-tertiary: #64748b;
+      
+      --color-border-primary: rgba(255, 255, 255, 0.08);
+      --color-border-hover: rgba(99, 102, 241, 0.4);
+      --color-border-tertiary: rgba(255, 255, 255, 0.06);
+      
+      --color-background-primary: #0e131f;
+      --color-background-secondary: #161d30;
+      
+      /* Info (Blue) */
+      --color-background-info: rgba(56, 189, 248, 0.1);
+      --color-text-info: #38bdf8;
+      --color-border-info: rgba(56, 189, 248, 0.2);
+      
+      /* Success (Green) */
+      --color-background-success: rgba(52, 211, 153, 0.1);
+      --color-text-success: #34d399;
+      --color-border-success: rgba(52, 211, 153, 0.2);
+      
+      /* Warning (Yellow/Orange) */
+      --color-background-warning: rgba(251, 191, 36, 0.1);
+      --color-text-warning: #fbbf24;
+      --color-border-warning: rgba(251, 191, 36, 0.2);
+      
+      /* Danger (Red) */
+      --color-background-danger: rgba(248, 113, 113, 0.1);
+      --color-text-danger: #f87171;
+      --color-border-danger: rgba(248, 113, 113, 0.2);
+      
+      --border-radius-sm: 8px;
+      --border-radius-md: 12px;
+      --border-radius-lg: 20px;
+      --border-radius-xl: 32px;
+      
+      --glow-primary: rgba(99, 102, 241, 0.15);
+    }
+
+    /* Light Theme toggled class */
+    body.light-theme {
+      --bg-app: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      
+      --color-text-primary: #0f172a;
+      --color-text-secondary: #475569;
+      --color-text-tertiary: #94a3b8;
+      
+      --color-border-primary: rgba(15, 23, 42, 0.08);
+      --color-border-hover: rgba(99, 102, 241, 0.4);
+      --color-border-tertiary: rgba(15, 23, 42, 0.05);
+      
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f1f5f9;
+      
+      /* Info (Blue) */
+      --color-background-info: rgba(2, 132, 199, 0.08);
+      --color-text-info: #0284c7;
+      --color-border-info: rgba(2, 132, 199, 0.15);
+      
+      /* Success (Green) */
+      --color-background-success: rgba(22, 163, 74, 0.08);
+      --color-text-success: #16a34a;
+      --color-border-success: rgba(22, 163, 74, 0.15);
+      
+      /* Warning (Yellow/Orange) */
+      --color-background-warning: rgba(217, 119, 6, 0.08);
+      --color-text-warning: #d97706;
+      --color-border-warning: rgba(217, 119, 6, 0.15);
+      
+      /* Danger (Red) */
+      --color-background-danger: rgba(220, 38, 38, 0.08);
+      --color-text-danger: #dc2626;
+      --color-border-danger: rgba(220, 38, 38, 0.15);
+      
+      --glow-primary: rgba(99, 102, 241, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-app);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Ambient Background Glows */
+    .glow-bg {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+      top: -200px;
+      right: -100px;
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+    
+    .glow-bg-2 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0) 70%);
+      bottom: 10%;
+      left: -200px;
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      position: relative;
+    }
+
+    /* Theme Toggle Switch */
+    .theme-toggle-container {
+      position: absolute;
+      top: 2rem;
+      right: 1.5rem;
+      z-index: 10;
+    }
+
+    .theme-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--color-border-primary);
+      color: var(--color-text-primary);
+      padding: 10px 16px;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 13px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-btn:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-1px);
+    }
+
+    .theme-btn i {
+      font-size: 16px;
+    }
+
+    /* Original styles customized to blend in */
+    .p-detail {
+      display: none;
+      animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .p-card.open .p-detail {
+      display: block;
+    }
+    .p-card .ch {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+    .p-card.open .ch {
+      transform: rotate(180deg);
+      color: var(--color-text-info) !important;
+    }
+    
+    .p-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--border-radius-lg);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+    }
+    .p-card:hover {
+      border-color: var(--color-border-hover);
+      box-shadow: 0 10px 30px -10px var(--glow-primary);
+    }
+
+    .p-hdr {
+      cursor: pointer;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 24px;
+      user-select: none;
+    }
+    
+    .ph-t {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 6px;
+      color: var(--color-text-primary);
+      transition: color .15s;
+    }
+    
+    .p-hdr:hover .ph-t {
+      color: var(--color-text-info);
+    }
+    
+    .tp {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin: 3px 3px 0 0;
+      background: var(--bg-surface-elevated);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border-tertiary);
+    }
+    
+    .rr {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: var(--border-radius-md);
+      margin-bottom: 8px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--color-border-tertiary);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    
+    .rr:hover {
+      transform: translateX(6px);
+      border-color: var(--color-border-hover);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Keyframe Animations */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Grid Customizations */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 2.5rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 2.5rem;
+    }
+
+    .tool-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--border-radius-lg);
+      padding: 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-border-hover);
+      box-shadow: 0 8px 20px -6px var(--glow-primary);
+    }
+
+    .header-section {
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: var(--color-background-info);
+      color: var(--color-text-info);
+      border: 1px solid var(--color-border-info);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      background: linear-gradient(135deg, var(--color-text-primary) 30%, var(--color-text-info));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead-text {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin: 0 0 20px;
+      line-height: 1.6;
+      max-width: 720px;
+    }
+
+    /* Timeline styling */
+    .timeline-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 18px;
+      top: 32px;
+      bottom: 32px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-text-info), var(--color-text-success), var(--color-text-warning), var(--color-text-danger));
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .p-card-container {
+      position: relative;
+      padding-left: 52px;
+      z-index: 1;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 10px;
+      top: 24px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 0 0 4px var(--bg-app);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .p-card-container:hover .timeline-dot {
+      transform: scale(1.25);
+    }
+
+    .principles-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--color-border-primary);
+      border-radius: var(--border-radius-lg);
+      padding: 24px;
+      margin-top: 1rem;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin: -10px 0 20px;
+    }
+
+    .principle-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+    
+    .principle-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    /* Week breakdown styling */
+    .week-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--color-border-tertiary);
+    }
+    .week-row:last-child {
+      border-bottom: none;
+    }
+    .week-num {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--color-text-info);
+      background: var(--color-background-info);
+      border: 1px solid var(--color-border-info);
+      padding: 2px 8px;
+      border-radius: 4px;
+      height: fit-content;
+      flex-shrink: 0;
+    }
+    .week-desc {
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="glow-bg"></div>
+  <div class="glow-bg-2"></div>
+
+  <div class="container">
+    <div class="theme-toggle-container">
+      <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">
+        <i class="ti ti-sun" id="theme-icon"></i>
+        <span id="theme-text">Light Mode</span>
+      </button>
+    </div>
+
+    <div class="header-section">
+      <div class="header-badge">
+        <i class="ti ti-chart-arrows"></i> BSCS student · Lahore, Pakistan
+      </div>
+      <h1>AI Engineering Roadmap</h1>
+      <p class="lead-text">Built from your background, goals, and real constraints. Click any phase to expand topics, projects, resources, and your milestone check.</p>
+      
+      <div id="meta-tags" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
+
+    <p class="section-title"><i class="ti ti-user-circle" style="color:var(--color-text-info)"></i> Profile Analysis</p>
+    <div class="dashboard-grid" id="profile-grid"></div>
+
+    <p class="section-title"><i class="ti ti-route" style="color:var(--color-text-success)"></i> Phase Roadmap</p>
+    <p class="section-subtitle">Click any phase to see topics, projects, resources, and your milestone check.</p>
+    
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+      <div id="phases-list"></div>
+    </div>
+
+    <p class="section-title"><i class="ti ti-tool" style="color:var(--color-text-warning)"></i> Free Tools to Use Now</p>
+    <div class="tool-grid" id="tools-grid"></div>
+
+    <div class="principles-card">
+      <p class="section-title" style="margin-bottom:20px"><i class="ti ti-bulb" style="color:var(--color-text-danger)"></i> Learning Principles for Your Situation</p>
+      <div id="tips-list"></div>
+    </div>
+  </div>
+
+  <script>
+    const TAG = {
+      info: 'background:var(--color-background-info);color:var(--color-text-info);border:1px solid var(--color-border-info)',
+      success: 'background:var(--color-background-success);color:var(--color-text-success);border:1px solid var(--color-border-success)',
+      warning: 'background:var(--color-background-warning);color:var(--color-text-warning);border:1px solid var(--color-border-warning)',
+      danger: 'background:var(--color-background-danger);color:var(--color-text-danger);border:1px solid var(--color-border-danger)',
+      sec: 'background:var(--bg-surface-elevated);color:var(--color-text-secondary);border:1px solid var(--color-border-tertiary)'
+    };
+
+    const DOT = {
+      info: 'background:var(--color-text-info);box-shadow: 0 0 12px var(--color-text-info)',
+      success: 'background:var(--color-text-success);box-shadow: 0 0 12px var(--color-text-success)',
+      warning: 'background:var(--color-text-warning);box-shadow: 0 0 12px var(--color-text-warning)',
+      danger: 'background:var(--color-text-danger);box-shadow: 0 0 12px var(--color-text-danger)'
+    };
+
+    const tag = (txt, s) => `<span style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:4px 12px;border-radius:50px;${TAG[s] || TAG.sec}">${txt}</span>`;
+
+    const PHASES = [
+      {num:"01",dot:"info",title:"Python mastery",time:"4 weeks · Month 1",
+       note:"You already have Python basics — this is about depth, OOP structures, exception handling, and code organisation. Move quickly given your background.",
+       topics:["OOP & classes","File handling","Error handling","List comprehensions","Modules & packages","Decorators","Exception types"],
+       projects:["CLI student record manager (OOP)","File organiser script","Number guessing game with stats"],
+       weeks:[
+        {w:"Week 1",d:"Advanced OOP: Master inheritance, custom constructors (`__init__`), magic methods, and variable scopes (class vs instance variables)."},
+        {w:"Week 2",d:"Data structures & File Handling: Practice list/dict comprehensions, zip, map, filter, and robust OS/pathlib operations to read and write files."},
+        {w:"Week 3",d:"Error & Exception handling: Write clean custom try-except-finally blocks, handle multi-exceptions, and learn to raise tailored error classes."},
+        {w:"Week 4",d:"Modules, Decorators, and scripting: Learn how package importing works under the hood, write wrapper decorators, and finalize your CLI OOP Student Record Manager."}
+       ],
+       res:[
+        {n:"CS50P — Python (Harvard)",t:"free",u:"https://cs50.harvard.edu/python/",tip:"World-class free course. The single best Python starting point."},
+        {n:"Scientific Computing with Python (freeCodeCamp)",t:"free",u:"https://www.freecodecamp.org/learn/scientific-computing-with-python/",tip:"Project-based, interactive Python learning. Includes a FREE verification certificate."},
+        {n:"Corey Schafer Python playlist (YouTube)",t:"free",u:"https://www.youtube.com/playlist?list=PL-osiE80TeTskrapUr9hAH211y75JKaYc",tip:"Most-recommended Python series. Excellent OOP and modules coverage."},
+        {n:"freeCodeCamp Python full course (YouTube)",t:"free",u:"https://www.youtube.com/watch?v=rfscVS0vtbw",tip:"4-hour beginner-to-intermediate in one video."}
+       ],ms:"Build a CLI app from scratch — OOP structure, file I/O, proper error handling. No tutorial-following."},
+      {num:"02",dot:"info",title:"Math & statistics",time:"3 weeks · Month 1–2",
+       note:"You do not need a math degree. Focus only on concepts you will actually use in ML. This phase is faster than you expect.",
+       topics:["Probability & distributions","Mean, median, std dev","Correlation & covariance","Vectors & matrices","Gradient intuition","Bayes theorem basics"],
+       projects:["Statistical analysis on a Kaggle dataset","Plot distributions and correlations with matplotlib"],
+       weeks:[
+        {w:"Week 5",d:"Descriptive Statistics & Probability: Master mean, median, mode, variance, standard deviation, Gaussian distributions, and Bayes Theorem basics."},
+        {w:"Week 6",d:"Linear Algebra: Build visual intuition for vectors, matrices, dot products, matrix transformations, and eigenvalues/eigenvectors."},
+        {w:"Week 7",d:"Calculus & Gradient Intuition: Learn derivatives, partial derivatives, chain rule, and the core mathematics behind Gradient Descent optimization."}
+       ],
+       res:[
+        {n:"Khan Academy — Statistics & Probability",t:"free",u:"https://www.khanacademy.org/math/statistics-probability",tip:"Interactive, visual, perfectly paced for self-study."},
+        {n:"3Blue1Brown — Essence of Linear Algebra (YouTube)",t:"free",u:"https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab",tip:"The best visual explanation of linear algebra that exists."},
+        {n:"StatQuest — Josh Starmer (YouTube)",t:"free",u:"https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF",tip:"Stats and ML concepts explained with crystal clarity."}
+       ],ms:"Explain covariance, standard deviation, and the dot product in plain language with a concrete example each."},
+      {num:"03",dot:"success",title:"Data handling",time:"3 weeks · Month 2",
+       note:"The most practical phase. Every AI project starts with data cleaning. NumPy and Pandas are non-negotiable for any AI role.",
+       topics:["NumPy arrays & operations","Pandas DataFrames","Data cleaning & null handling","CSV and Excel reading","Matplotlib & Seaborn plots","SQL basics (SELECT, JOIN, GROUP BY)"],
+       projects:["Full EDA on a Kaggle dataset","Clean a messy real-world CSV","COVID-19 or stock market data visualisation"],
+       weeks:[
+        {w:"Week 8",d:"NumPy Foundations: Learn array creation, vectorized math operations, slicing, indexing, broadcasting, and matrix math in NumPy."},
+        {w:"Week 9",d:"Pandas & Data Manipulation: Load CSVs/Excel, filter, drop duplicate data, group data (`groupby`), and handle null values cleanly."},
+        {w:"Week 10",d:"Data Visualization & SQL: Build descriptive plots with Matplotlib/Seaborn, and master basic SQL queries (joins, filters, aggregates) for raw data retrieval."}
+       ],
+       res:[
+        {n:"Kaggle Learn — Pandas (free cert)",t:"free",u:"https://www.kaggle.com/learn/pandas",tip:"Hands-on, free completion certificate included. Best Pandas resource."},
+        {n:"Kaggle Learn — Data Visualisation",t:"free",u:"https://www.kaggle.com/learn/data-visualization",tip:"Practical Seaborn and Matplotlib course with free cert."},
+        {n:"SQLZoo — interactive SQL practice",t:"free",u:"https://sqlzoo.net/",tip:"SQL in the browser, no setup needed, immediate feedback."},
+        {n:"freeCodeCamp NumPy + Pandas (YouTube)",t:"free",u:"https://www.youtube.com/watch?v=GPVsHOlZsBI",tip:"Solid 4-hour walkthrough from scratch."}
+       ],ms:"Complete a full EDA notebook: clean data, handle all nulls, generate 5+ insights with supporting visualisations."},
+      {num:"04",dot:"warning",title:"Machine learning",time:"6 weeks · Months 3–4",
+       note:"The most important foundation. Andrew Ng's course is the gold standard — audit it free on Coursera. Do not rush this phase.",
+       topics:["Supervised vs unsupervised","Linear & logistic regression","Decision trees & random forest","SVM","K-Means clustering","Scikit-learn pipeline","Feature engineering","Model evaluation metrics"],
+       projects:["House price prediction (regression)","Customer churn predictor","Employee attrition prediction","Titanic survival on Kaggle"],
+       weeks:[
+        {w:"Week 11",d:"Supervised Learning & Regression: Implement Linear Regression, learn Cost functions, MSE, and optimization."},
+        {w:"Week 12",d:"Classification Algorithms: Study Logistic Regression, Decision Trees, entropy, and information gain."},
+        {w:"Week 13",d:"Ensemble Methods: Learn Random Forests, Gradient Boosted Trees (XGBoost), and classification vs regression evaluation metrics (precision, recall, F1, ROC-AUC)."},
+        {w:"Week 14",d:"Unsupervised Learning: Implement K-Means clustering, hierarchical clustering, and Principal Component Analysis (PCA) for dimension reduction."},
+        {w:"Week 15",d:"Scikit-learn Pipelines: Build clean Python workflows chaining scaling, imputation, feature engineering, and model training in one pipeline."},
+        {w:"Week 16",d:"Evaluation & Optimization: Learn hyperparameter tuning (GridSearchCV/RandomizedSearchCV), prevent overfitting via cross-validation, and write final model reports."}
+       ],
+       res:[
+        {n:"Andrew Ng — ML Specialization (Coursera / DeepLearning.AI)",t:"free",u:"https://www.coursera.org/specializations/machine-learning-introduction",tip:"Audit for free. The canonical ML entry point. 3-course series covering supervised and unsupervised learning."},
+        {n:"Kaggle Learn — Intro to Machine Learning",t:"free",u:"https://www.kaggle.com/learn/intro-to-machine-learning",tip:"Fast practical intro with Scikit-learn focus. Free cert."},
+        {n:"StatQuest ML playlist (YouTube)",t:"free",u:"https://www.youtube.com/playlist?list=PLblh5JKOoLUIXWld170yCcYrITmFZsScS",tip:"Deep conceptual understanding of every major algorithm."},
+        {n:"Krish Naik — ML playlist (YouTube)",t:"free",u:"https://www.youtube.com/playlist?list=PLZoTAELRMXVPBTrWtJkn3wKgo4IP5sSzv",tip:"Very practical. Popular with learners across South Asia."}
+       ],ms:"Build a full churn prediction pipeline: raw data to cleaning to feature engineering to model to evaluation report."},
+      {num:"05",dot:"danger",title:"Deep learning",time:"5 weeks · Month 5",
+       note:"Use PyTorch — it is the industry standard. No GPU? Google Colab and Kaggle both give free GPU access with no setup.",
+       topics:["Neural network architecture","Activation functions","Forward & backpropagation","CNNs","Transfer learning","PyTorch fundamentals","Training loops","Loss functions & optimisers"],
+       projects:["MNIST digit recognition from scratch","Image classifier with transfer learning","Sentiment analysis model"],
+       weeks:[
+        {w:"Week 17",d:"Perceptrons & Neural Networks: Study Multi-Layer Perceptrons, activation functions (ReLU, Sigmoid, Softmax), forward propagation, and cross-entropy loss."},
+        {w:"Week 18",d:"Backpropagation & Training: Understand the chain rule, gradients, weights, backpropagation, and basic optimization (SGD, Adam)."},
+        {w:"Week 19",d:"PyTorch Foundations: Write raw PyTorch code, manage tensors, create Datasets/DataLoaders, and build a modular neural network class (`nn.Module`)."},
+        {w:"Week 20",d:"Convolutional Neural Networks (CNNs): Study spatial features, kernel filters, max pooling, and build image classifiers."},
+        {w:"Week 21",d:"Transfer Learning & Spaces: Load pre-trained models (ResNet/ViT), fine-tune final linear layers on custom data, and publish model weights to Hugging Face."}
+       ],
+       res:[
+        {n:"Andrej Karpathy — Neural Networks: Zero to Hero",t:"free",u:"https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUbFy1A",tip:"Build backprop from scratch. Legendary series. Watch this no matter what."},
+        {n:"Andrew Ng — Deep Learning Specialization (Coursera / DeepLearning.AI)",t:"free",u:"https://www.coursera.org/specializations/deep-learning",tip:"Audit for free. 5-course specialization covering CNNs, RNNs, Transformers, and regularization."},
+        {n:"fast.ai — Practical Deep Learning",t:"free",u:"https://course.fast.ai/",tip:"Top-down practical approach, completely free, globally respected."},
+        {n:"PyTorch Official Tutorials",t:"free",u:"https://pytorch.org/tutorials/",tip:"Official reference, always maintained and up to date."}
+       ],ms:"Train a CNN with over 85% accuracy. Deploy it as a public demo on Hugging Face Spaces."},
+      {num:"06",dot:"info",title:"LLMs & prompt engineering",time:"4 weeks · Month 6",
+       note:"Entry point to modern AI engineering. Highly practical and fast-moving. These skills are what companies are actively hiring for right now.",
+       topics:["How transformers work","Tokens & context windows","Embeddings","Prompt engineering (zero-shot, few-shot, CoT)","OpenAI & Gemini APIs","System prompts","Hugging Face Transformers library"],
+       projects:["Resume analyser and improver","AI text summariser","Code explainer bot","Multi-turn chatbot with memory"],
+       weeks:[
+        {w:"Week 22",d:"Transformers & Embeddings: Learn how self-attention works, context windows, tokenizers, and generating similarity scores from vector embeddings."},
+        {w:"Week 23",d:"Prompt Engineering: Master advanced prompt methods (Chain of Thought, Few-Shot examples, Structured Outputs, and system role definition)."},
+        {w:"Week 24",d:"LLM API Integration: Make API calls with Python to OpenAI, Gemini, and Anthropic. Manage multi-turn conversation memory arrays dynamically."},
+        {w:"Week 25",d:"Open-Source Models: Use the Hugging Face Transformers library to download local models, load tokenizers, and run inference locally on CPU/GPU."}
+       ],
+       res:[
+        {n:"Andrej Karpathy — Let's build GPT (YouTube)",t:"free",u:"https://www.youtube.com/watch?v=kCc8FmEb1nY",tip:"Build GPT from scratch. Foundational understanding of how LLMs work."},
+        {n:"Hugging Face LLM Course (free)",t:"free",u:"https://huggingface.co/learn/llm-course",tip:"Deeper dive into large language models - pretraining, fine-tuning, and deployment."},
+        {n:"DeepLearning.AI Short Courses",t:"free",u:"https://www.deeplearning.ai/short-courses/",tip:"20+ free 1-hour courses taught by top field experts."},
+        {n:"Hugging Face NLP Course",t:"free",u:"https://huggingface.co/learn/nlp-course/",tip:"Hands-on Transformers library, completely free with exercises."},
+        {n:"OpenAI Prompt Engineering Guide",t:"free",u:"https://platform.openai.com/docs/guides/prompt-engineering",tip:"Official best practices — read this carefully and take notes."},
+        {n:"OpenAI Cookbook & Guides",t:"free",u:"https://cookbook.openai.com/",tip:"Step-by-step code implementations for embeddings, tool calling, and APIs."},
+        {n:"Anthropic Claude Cookbook",t:"free",u:"https://github.com/anthropics/anthropic-cookbook",tip:"Reference implementations for prompt patterns, tool use, and structured outputs."}
+       ],ms:"Build a multi-turn chatbot with a custom persona using OpenAI API, a system prompt, and conversation history."},
+      {num:"07",dot:"success",title:"RAG systems",time:"4 weeks · Month 7",
+       note:"RAG is the single most in-demand AI engineering skill right now. You will use it to build AI that searches your own documents.",
+       topics:["Vector embeddings","ChromaDB and FAISS","Document chunking strategies","Similarity search","LangChain chains","Document loaders","Retrieval and generation pipeline"],
+       projects:["Chat with your BSCS textbook PDFs","Company knowledge base assistant","AI study tool from any uploaded document"],
+       weeks:[
+        {w:"Week 26",d:"Document Loading & Chunking: Learn PDF/TXT parsing, semantic chunking, overlaps, and data sanitation."},
+        {w:"Week 27",d:"Vector Database Management: Load documents into ChromaDB or FAISS, generate similarity vectors, and test indexing/retrieval filters."},
+        {w:"Week 28",d:"Chains & Context Insertion: Build LangChain/LlamaIndex pipelines to fetch relevant context and append it directly to user LLM prompts."},
+        {w:"Week 29",d:"Evaluation & RAG Optimization: Identify hallucinations, tune chunk sizes, implement rerankers (Cohere/BGE), and finalize your Textbook Chat app."}
+       ],
+       res:[
+        {n:"DeepLearning.AI — LangChain: Chat with Your Data",t:"free",u:"https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/",tip:"Free, taught by the LangChain creator. Directly applicable."},
+        {n:"LangChain Python documentation",t:"free",u:"https://python.langchain.com/",tip:"Comprehensive and well-organised reference."},
+        {n:"DeepLearning.AI Short Courses — RAG",t:"free",u:"https://www.deeplearning.ai/short-courses/",tip:"Check the site for the latest RAG-specific courses."}
+       ],ms:"Build a RAG app that lets you have a conversation with three or more of your university textbooks."},
+      {num:"08",dot:"warning",title:"AI agents",time:"4 weeks · Month 7–8",
+       note:"The frontier of AI engineering in 2026. Your planned AI timetable reminder project fits perfectly into this phase.",
+       topics:["Agentic AI & ReAct framework","Tool calling and function calling","LangGraph (stateful agents)","CrewAI (multi-agent systems)","Agent memory and state","Tool creation","Agent evaluation"],
+       projects:["AI research agent (web search + summarise)","Your AI timetable reminder agent","Customer support agent","Multi-agent content writer"],
+       weeks:[
+        {w:"Week 30",d:"Tool & Function Calling: Master teaching models to call external Python functions autonomously by feeding them JSON schemas."},
+        {w:"Week 31",d:"LangGraph Stateful Agents: Build cyclical agentic pipelines with states, custom edge rules, loops, and human-in-the-loop validation nodes."},
+        {w:"Week 32",d:"Multi-Agent Systems: Implement CrewAI/LangGraph multi-agent templates where different agents (e.g. planner, researcher, writer) pass data to each other."},
+        {w:"Week 33",d:"Timetable Project: Put it all together to construct your AI Timetable reminder agent that queries schedules and triggers actions."}
+       ],
+       res:[
+        {n:"Hugging Face AI Agents Course (Certified)",t:"free",u:"https://huggingface.co/learn/agents-course/en/unit0/introduction",tip:"The standout certified free agent course. Taught step-by-step covering smolagents, LangGraph, and LlamaIndex. Includes a public leaderboard competition."},
+        {n:"Introduction to LangGraph (LangChain Academy)",t:"free",u:"https://academy.langchain.com/courses/intro-to-langgraph",tip:"Official free course by LangChain. Learn loops, reflection, and stateful orchestration patterns."},
+        {n:"AI Agent Developer Specialization (Vanderbilt / Coursera)",t:"free",u:"https://www.coursera.org/specializations/ai-agents",tip:"Audit free. Taught by Dr. Jules White. 6-course sequence covering agent architectures, memory, and tool integration."},
+        {n:"DeepLearning.AI — Multi-AI Agent Systems with CrewAI",t:"free",u:"https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/",tip:"Free, taught by the CrewAI creator himself."}
+       ],ms:"Build your AI timetable reminder agent — handles scheduling, reminders, and natural language queries autonomously."},
+      {num:"09",dot:"info",title:"Deployment, MCP & portfolio",time:"4 weeks · Month 8",
+       note:"Since you have no previous frontend/backend knowledge, keep deployment dead-simple using Python-only GUI tools. Also learn MCP to link agents to data resources.",
+       topics:["Model Context Protocol (MCP)","Streamlit (Python-only web apps)","Gradio (quick ML demos)","FastAPI (simple backend APIs)","Docker basics (packaging apps)","Git and GitHub portfolio","Hugging Face Spaces (free zero-setup hosting)"],
+       projects:["Deploy your best ML model as a Streamlit web app","Deploy your PDF chatbot publicly","Build a simple FastAPI endpoint for an AI project","Connect an LLM to a database tool via an MCP server"],
+       weeks:[
+        {w:"Week 34",d:"Model Context Protocol (MCP): Master Anthropic's standard to create backend servers that let models query local SQLite databases or third-party APIs."},
+        {w:"Week 35",d:"Python-Only Frontends: Learn Streamlit and Gradio to build gorgeous web dashboard interfaces with sliders, text inputs, and file upload modules without HTML/CSS."},
+        {w:"Week 36",d:"FastAPI & Docker basics: Build API endpoints (`/query`, `/predict`), package your Python scripts inside a Docker container, and test it locally."},
+        {w:"Week 37",d:"Portfolio & Shipping: Publish your three top projects (RAG, Agent, ML Pipeline) to Hugging Face Spaces, write clean GitHub READMEs, and compile your resume."}
+       ],
+       res:[
+        {n:"Model Context Protocol (MCP) Documentation",t:"free",u:"https://modelcontextprotocol.io/",tip:"Anthropic's open-standard for connecting AI models to tools and local/remote databases."},
+        {n:"MCP: Build Rich-Context AI Apps (DeepLearning.AI x Anthropic)",t:"free",u:"https://www.deeplearning.ai/short-courses/mcp-build-rich-context-ai-apps-with-anthropic/",tip:"Learn to construct custom MCP servers and integrate them into LLM tools."},
+        {n:"Claude Cookbook - Agentic Patterns & MCP",t:"free",u:"https://github.com/anthropics/claude-cookbooks",tip:"Anthropic's official cookbook templates for sub-agents and Model Context Protocol setups."},
+        {n:"Streamlit documentation",t:"free",u:"https://docs.streamlit.io/",tip:"Build interactive web UIs entirely in Python with no HTML/CSS/JS knowledge needed."},
+        {n:"Hugging Face Spaces",t:"free",u:"https://huggingface.co/spaces",tip:"Free hosting for AI and ML apps. This is your public portfolio."}
+       ],ms:"Three AI projects deployed publicly with clean GitHub READMEs — accessible via URLs that anyone can visit."}
+    ];
+
+    const TOOLS = [
+      {ic:"ti-cloud",name:"Google Colab",badge:"Free GPU",desc:"Train deep learning models in the browser. No setup, free GPU — your primary training environment for phases 5–9."},
+      {ic:"ti-trophy",name:"Kaggle",badge:"Free GPU + datasets",desc:"Free GPU, thousands of datasets, competitions for portfolio-building, and free courses with certificates."},
+      {ic:"ti-heart",name:"Hugging Face",badge:"Free models + hosting",desc:"Pre-trained models, free Spaces hosting, NLP course, and active community. Central platform for phases 6–9."},
+      {ic:"ti-code",name:"VS Code",badge:"Free IDE",desc:"Best Python IDE. Lightweight, fast, excellent Python and AI extensions. GitHub Copilot is free for students."},
+      {ic:"ti-brand-github",name:"GitHub",badge:"Portfolio + version control",desc:"Push every project here. Your GitHub profile is your real resume — Pakistani AI engineers get noticed internationally."},
+      {ic:"ti-message-circle",name:"Discord communities",badge:"Free community",desc:"LangChain, Hugging Face, fast.ai Discords. Ask questions, get expert answers, find collaborators."}
+    ];
+
+    const TIPS = [
+      ["ti-hammer","Project-first, always","End every phase with a deployable project. Do not study endlessly — ship something. The AI timetable idea you already have is the right mindset."],
+      ["ti-brand-github","Build in public on GitHub","Push every project. Pakistani AI engineers who build in public get noticed internationally. Your GitHub profile is your real resume."],
+      ["ti-robot","Use AI to learn faster","Use Claude, ChatGPT, and GitHub Copilot throughout — ask conceptual questions, debug code, explain errors. Copilot is free for students."],
+      ["ti-school","Connect your BSCS coursework","Algorithms, data structures, and math courses in your degree directly support phases 1–4. Use university assignments as ML practice data."],
+      ["ti-calendar","Consistency compounds","3 hours daily beats 10-hour weekend sessions. Use your university schedule to protect daily learning blocks, even during busy exam periods."]
+    ];
+
+    const PROFILE = [
+      {c:'success',ic:'ti-thumb-up',t:'Your strengths',items:["Python foundation exists","BSCS academic structure","Clear goal and motivation","Lahore tech scene is growing"]},
+      {c:'warning',ic:'ti-alert-triangle',t:'Gaps to close',items:["No ML/AI hands-on yet","No previous web dev / frontend experience","No backend API knowledge","Math depth (fast to fix)"]},
+      {c:'danger',ic:'ti-adjustments',t:'Real constraints',items:["Student schedule, ~3 hrs/day","Budget: prioritise free","No GPU: Colab and Kaggle","Fast-moving field to track"]},
+      {c:'info',ic:'ti-rocket',t:'Your advantages',items:["95% of roadmap is free","BSCS overlaps phases 1–3","Timetable project is real","Pakistan AI talent is global"]}
+    ];
+
+    // Initialize layout
+    document.getElementById('meta-tags').innerHTML = `
+      ${tag('<i class="ti ti-list-check" aria-hidden="true"></i> 9 phases','info')}
+      ${tag('<i class="ti ti-calendar" aria-hidden="true"></i> 37 weeks','sec')}
+      ${tag('<i class="ti ti-coin" aria-hidden="true"></i> 95% free','success')}
+      ${tag('<i class="ti ti-clock" aria-hidden="true"></i> ~3 hrs / day','sec')}
+    `;
+
+    document.getElementById('profile-grid').innerHTML = PROFILE.map(p => `
+      <div style="background:var(--color-background-${p.c});border:1px solid var(--color-border-${p.c});border-radius:var(--border-radius-lg);padding:18px">
+        <p style="font-size:13px;font-weight:700;color:var(--color-text-${p.c});margin:0 0 12px;display:flex;align-items:center;gap:8px">
+          <i class="ti ${p.ic}" aria-hidden="true" style="font-size:16px"></i> ${p.t}
+        </p>
+        ${p.items.map(s => `<p style="font-size:12px;color:var(--color-text-${p.c});margin:6px 0;display:flex;align-items:center;gap:6px"><span style="width:4px;height:4px;border-radius:50%;background-color:var(--color-text-${p.c})"></span>${s}</p>`).join('')}
+      </div>
+    `).join('');
+
+    function renderPhases() {
+      return PHASES.map(p => `
+        <div class="p-card-container">
+          <div class="timeline-dot" style="${DOT[p.dot]}"></div>
+          <div class="p-card">
+            <div class="p-hdr">
+              <div style="flex:1">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+                  ${tag('Phase ' + p.num, 'info')} 
+                  ${tag(p.time, 'sec')}
+                </div>
+                <p class="ph-t">${p.title}</p>
+                <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.6">${p.note}</p>
+              </div>
+              <div style="padding-top:4px;flex-shrink:0">
+                <i class="ti ti-chevron-down ch" aria-hidden="true" style="font-size:20px;color:var(--color-text-tertiary)"></i>
+              </div>
+            </div>
+            <div class="p-detail" style="border-top:1px solid var(--color-border-tertiary);padding:20px 24px;background:var(--bg-surface-elevated)">
+              
+              <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-tertiary);margin:0 0 10px">Weekly Timeline Breakdown</p>
+              <div style="margin-bottom:24px;display:flex;flex-direction:column;gap:4px">
+                ${p.weeks.map(wk => `
+                  <div class="week-row">
+                    <span class="week-num">${wk.w}</span>
+                    <div class="week-desc">${wk.d}</div>
+                  </div>
+                `).join('')}
+              </div>
+
+              <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-tertiary);margin:0 0 10px">Topics to master</p>
+              <div style="margin-bottom:20px;display:flex;flex-wrap:wrap;gap:2px">${p.topics.map(t => `<span class="tp">${t}</span>`).join('')}</div>
+              
+              <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-tertiary);margin:0 0 10px">Hands-on projects</p>
+              <div style="margin-bottom:20px;display:flex;flex-direction:column;gap:8px">
+                ${p.projects.map(pr => `
+                  <div style="font-size:13px;color:var(--color-text-primary);display:flex;gap:8px;align-items:center">
+                    <i class="ti ti-circle-check" style="font-size:15px;color:var(--color-text-success);flex-shrink:0" aria-hidden="true"></i>
+                    <span>${pr}</span>
+                  </div>
+                `).join('')}
+              </div>
+              
+              <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-tertiary);margin:0 0 10px">Curated Resources & Certifications (Click to Open)</p>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+                ${p.res.map(r => `
+                  <a href="${r.u}" target="_blank" class="rr">
+                    <span style="display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:4px 10px;border-radius:50px;flex-shrink:0;${r.t === 'free' ? TAG.success : TAG.warning}">
+                      ${r.t === 'free' ? 'FREE' : r.p || 'PAID'}
+                    </span>
+                    <div style="flex:1">
+                      <p style="font-size:13px;font-weight:600;margin:0 0 2px;color:var(--color-text-primary);display:flex;align-items:center;gap:6px">
+                        ${r.n} <i class="ti ti-external-link" style="font-size:12px;color:var(--color-text-tertiary)"></i>
+                      </p>
+                      <p style="font-size:12px;color:var(--color-text-secondary);margin:0;line-height:1.4">${r.tip}</p>
+                    </div>
+                  </a>
+                `).join('')}
+              </div>
+              
+              <div style="background:var(--color-background-info);border:1px solid var(--color-border-info);border-radius:var(--border-radius-md);padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+                <i class="ti ti-target-arrow" style="font-size:22px;color:var(--color-text-info);flex-shrink:0" aria-hidden="true"></i>
+                <div>
+                  <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-info);margin:0 0 4px">Phase Milestone</p>
+                  <p style="font-size:13px;color:var(--color-text-primary);margin:0;line-height:1.6;font-weight:500">${p.ms}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('phases-list').innerHTML = renderPhases();
+
+    document.getElementById('tools-grid').innerHTML = TOOLS.map(t => `
+      <div class="tool-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:36px;height:36px;border-radius:8px;background:var(--bg-surface-elevated);display:flex;align-items:center;justify-content:center;border:1px solid var(--color-border-primary)">
+            <i class="ti ${t.ic}" style="font-size:20px;color:var(--color-text-info)" aria-hidden="true"></i>
+          </div>
+          <p style="font-size:14px;font-weight:700;margin:0;color:var(--color-text-primary)">${t.name}</p>
+        </div>
+        <span style="display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:10px;${TAG.success}">${t.badge}</span>
+        <p style="font-size:12.5px;color:var(--color-text-secondary);margin:0;line-height:1.6">${t.desc}</p>
+      </div>
+    `).join('');
+
+    document.getElementById('tips-list').innerHTML = TIPS.map(([ic, t, d]) => `
+      <div class="principle-row">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <i class="ti ${ic}" style="font-size:18px;color:var(--color-text-info)" aria-hidden="true"></i>
+        </div>
+        <div>
+          <p style="font-size:14px;font-weight:700;margin:0 0 4px;color:var(--color-text-primary)">${t}</p>
+          <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.6">${d}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // Setup toggle listeners
+    document.querySelectorAll('.p-card').forEach(card => {
+      card.querySelector('.p-hdr').addEventListener('click', () => {
+        const isOpen = card.classList.contains('open');
+        
+        // Close all cards first for accordion style (optional but clean)
+        document.querySelectorAll('.p-card').forEach(c => {
+          c.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          card.classList.add('open');
+        }
+      });
+    });
+
+    // Theme Toggle Functionality
+    function toggleTheme() {
+      const body = document.body;
+      const themeIcon = document.getElementById('theme-icon');
+      const themeText = document.getElementById('theme-text');
+      
+      body.classList.toggle('light-theme');
+      
+      if (body.classList.contains('light-theme')) {
+        themeIcon.className = 'ti ti-moon';
+        themeText.innerText = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        themeIcon.className = 'ti ti-sun';
+        themeText.innerText = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Load user preferred theme
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        document.getElementById('theme-icon').className = 'ti ti-moon';
+        document.getElementById('theme-text').innerText = 'Dark Mode';
+      }
+    });
+  </script>
+</body>
+</html>
